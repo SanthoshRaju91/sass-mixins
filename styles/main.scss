@@ -2,16 +2,46 @@
 @import "./common/colors";
 @import "./common/layout";
 
+:root {
+  --primary-text: #{$primary-default-text};
+  --secondary-text: #{$secondary-default-text};
+  --tertiary-text: #{$tertiary-default-text};
+  --brand-background: #{$brand-default-background};
+}
+
+.dark {
+  --primary-text: #{$primary-dark-text};
+  --secondary-text: #{$secondary-dark-text};
+  --tertiary-text: #{$tertiary-dark-text};
+  --brand-background: #{$brand-dark-background};
+}
+
 body {
   @include p;
   @include container;
-  color: $primary-text;
+  background: var(--brand-background);
+  color: var(--primary-text);
   padding: 40px 0;
 }
 
 .app__container {
-  h1 {
-    @include h1;
+  &--header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    h1 {
+      @include h1;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      background-color: var(--tertiary-text);
+      box-shadow: 0px 0px 2px var(--tertiary-text);
+    }
   }
 
   &--profile {

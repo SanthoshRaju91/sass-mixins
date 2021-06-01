@@ -1,13 +1,25 @@
 import Head from "next/head";
-import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+  function toggleTheme() {
+    document.body.classList.toggle("dark");
+    setIsDarkTheme(!isDarkTheme);
+  }
+
   return (
     <div className="app__container">
       <Head>
         <title>Sass Mixins</title>
       </Head>
-      <h1>Sass Mixins</h1>
+      <div className="app__container--header">
+        <h1>Sass Mixins</h1>
+        <button onClick={toggleTheme}>
+          <img src="/dark-mode.svg" alt="Dark Mode" />
+        </button>
+      </div>
       <p>
         Mixins allow you to define styles that can be re-used throughout your
         stylesheet. They make it easy to avoid using non-semantic classes like
